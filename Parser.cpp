@@ -4,7 +4,7 @@
 
 #include "Parser.h"
 #include "State.h"
-#include <string.h>
+#include <string>
 
 void Parser::parseState(std::string input, State * state) {
     for (int i = 0; i < input.size(); i++) {
@@ -20,10 +20,10 @@ void Parser::parseState(std::string input, State * state) {
         if (i == 9 && input[i] == '1') state->generator6 = GeneratorStatus::FINISHED;
 
         if (i == 10) {
-            state->percentage1 = std::stoi(input[i].c_str());
+            state->percentage1 = (int) input[i] - (int) '0';
         }
         if (i == 11) {
-            state->percentage2 = std::stoi(input[i].c_str());
+            state->percentage2 = (int) input[i] - (int) '0';
         }
     }
 }
